@@ -9,8 +9,10 @@
         },
         removeTask: function (target) {
             //console.dir(target.children[0].innerText);
+            var targetText = target.children[0].innerText;
+            var targetNum = this.tasks.indexOf(targetText);
+            delete this.tasks[targetNum];
             app.view.delTask(target);
-
         }
     }
 })()

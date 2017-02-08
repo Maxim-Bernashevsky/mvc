@@ -16,12 +16,14 @@ var app = (function(){
             app.controller.addTask();
         });
 
-        var list = document.querySelectorAll("li i");
-        list.forEach(function (btnDel) {
-            btnDel.addEventListener("click", function(){
-                app.controller.delTask(this.parentNode);
-            });
+
+        var list = document.querySelector("ul");
+        list.addEventListener("click", function (event) {
+            var target = event.target;
+            if (target.tagName != 'I') return;
+            app.controller.delTask(target.parentNode);
         });
+        
     }
 
 
