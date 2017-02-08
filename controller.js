@@ -1,1 +1,5 @@
-(function(){})()
+(function(){
+    app.controller = {
+
+    }
+})();

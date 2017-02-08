@@ -1,1 +1,6 @@
-(function(){})()
+(function(){
+
+    app.view = {
+
+    }
+})()
