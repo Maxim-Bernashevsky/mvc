@@ -1,11 +1,10 @@
 (function(){
     app.controller = {
         addTask: function () {
-            var li = app.model.calc();
-            app.view.showNewTask(li);
+            app.model.addTask();
         },
         delTask: function (target) {
-            app.view.delTask(target);
+            app.model.removeTask(target);
         }
     }
 })();

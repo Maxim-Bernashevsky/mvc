@@ -5,24 +5,23 @@ var app = (function(){
         main();
         event();
     }
-    function main() {
+    init();
 
-    }
+    function main() {  }
 
     function event() {
         var el = document.getElementById("btnNewTask");
-        el.onclick = function(){
+        el.addEventListener("click", function(event){
             event.preventDefault();
             app.controller.addTask();
-        };
+        });
 
         var list = document.querySelectorAll("li i");
         list.forEach(function (btnDel) {
-            btnDel.onclick = function () {
+            btnDel.addEventListener("click", function(){
                 app.controller.delTask(this.parentNode);
-            }
-
-        })
+            });
+        });
     }
 
 

@@ -1,11 +1,16 @@
 (function(){
     app.model = {
 
-        calc: function(){
+        tasks: [],
+        addTask: function () {
             var text = document.getElementById("newTask").value;
-            var li = document.createElement("li");
-            li.innerHTML = "<span>"+text+"</span><i>X</i>";
-            return li;
+            this.tasks.push(text);
+            app.view.showNewTask(text);
+        },
+        removeTask: function (target) {
+            //console.dir(target.children[0].innerText);
+            app.view.delTask(target);
+
         }
     }
 })()
