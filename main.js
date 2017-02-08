@@ -15,7 +15,7 @@ var app = (function(){
             event.preventDefault();
             app.controller.addTask();
         });
-        
+
         var list = document.querySelector("ul");
         list.addEventListener("click", function (event) {
             var target = event.target;
