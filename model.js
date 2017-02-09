@@ -1,29 +1,16 @@
-(function(){
-    app.model = {
+app.model = (function () {
+    var tasks = [];
 
-        taskFun: function () {
-            var tasks = [];
-            
-            return {
-                addTask: function () {
-                    var text = document.getElementById("newTask").value;
-                    tasks.push(text);
-                    app.view.showNewTask(text);
-                },
-                removeTask: function (target) {
-                    var targetText = target.children[0].innerText;
-                    var targetNum = tasks.indexOf(targetText);
-                    delete tasks[targetNum];
-                    app.view.delTask(target);
-                },
-                setTasks: function () {
-                    return tasks;
-                }
-            }
+    return {
+        addTask: function (text) {
+            tasks.push(text);
+        },
+        removeTask: function (targetText) {
+            var targetNum = tasks.indexOf(targetText);
+            tasks.splice(targetNum, 1);
+        },
+        setTasks: function () {
+            return tasks;
         }
-
-
-
-
     }
 })()

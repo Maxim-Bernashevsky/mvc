@@ -20,7 +20,7 @@ var app = (function(){
         list.addEventListener("click", function (event) {
             var target = event.target;
             if (target.tagName != 'I') return;
-            app.controller.delTask(target.parentNode);
+            app.controller.removeTask(target.parentNode);
         });
 
     }

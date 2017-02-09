@@ -1,10 +1,10 @@
 (function(){
     app.controller = {
         addTask: function () {
-            app.model.taskFun().addTask();
+            app.view.setNewTask();
         },
-        delTask: function (target) {
-            app.model.taskFun().removeTask(target);
+        removeTask: function (target) {
+            app.view.removeTask(target);
         }
     }
 })();
