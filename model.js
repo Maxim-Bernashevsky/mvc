@@ -15,6 +15,9 @@
                     var targetNum = tasks.indexOf(targetText);
                     delete tasks[targetNum];
                     app.view.delTask(target);
+                },
+                setTasks: function () {
+                    return tasks;
                 }
             }
         }
