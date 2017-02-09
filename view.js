@@ -15,9 +15,13 @@
 
         emptyInput: function () {
             document.getElementById("newTask").classList.add("empty");
+            document.getElementById("labelNewTask").innerText = "Заполните текст инпута";
             setTimeout(function () {
                 document.getElementById("newTask").classList.remove("empty");
             }, 300);
-        } 
+            setTimeout(function () {
+                document.getElementById("labelNewTask").innerText = "Предстоит сделать";
+            }, 2000);
+        }
     }
 })()
