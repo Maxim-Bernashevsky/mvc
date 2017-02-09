@@ -2,12 +2,14 @@
 var app = (function(){
 
     function init() {
-        main();
         event();
+        main();
     }
     init();
 
-    function main() {  }
+    function main() {
+
+    }
 
     function event() {
         var el = document.getElementById("btnNewTask");
@@ -23,8 +25,13 @@ var app = (function(){
             app.controller.removeTask(target.parentNode);
         });
 
+        window.onload = function(){
+            var todos = app.model.getTasks();
+            todos.forEach(function (li) {
+                app.view.showNewTask(li);
+            })
+        };
     }
-
 
     return {}
 })();

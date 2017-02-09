@@ -1,14 +1,22 @@
-app.model = (function () {
 
+app.model = (function () {
+    var todos = [];
     return {
+
         addTask: function (text) {
-            localStorage.setItem(text, text);
+            todos.push(text);
+            localStorage.setItem("todos", JSON.stringify(todos));
         },
+
         removeTask: function (targetText) {
-            localStorage.removeItem(targetText);
+            todos = JSON.parse(localStorage.getItem("todos"));
+            var targetNum = todos.indexOf(targetText);
+            todos.splice(targetNum, 1);
+            localStorage.setItem("todos", JSON.stringify(todos));
         },
-        setTasks: function () {
-            return localStorage;
+
+        getTasks: function () {
+            return JSON.parse(localStorage.getItem("todos"));
         }
     }
 })()
