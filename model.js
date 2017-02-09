@@ -1,16 +1,14 @@
 app.model = (function () {
-    var tasks = [];
 
     return {
         addTask: function (text) {
-            tasks.push(text);
+            localStorage.setItem(text, text);
         },
         removeTask: function (targetText) {
-            var targetNum = tasks.indexOf(targetText);
-            tasks.splice(targetNum, 1);
+            localStorage.removeItem(targetText);
         },
         setTasks: function () {
-            return tasks;
+            return localStorage;
         }
     }
 })()
