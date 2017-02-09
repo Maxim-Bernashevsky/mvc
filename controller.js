@@ -4,7 +4,7 @@
 
         addTask: function () {
             var text = document.getElementById("newTask").value;
-            if(text.match(/\w/)){
+            if(text.match("/[A-zА-я0-9]_*/")){
                 app.model.addTask(text);
                 app.view.showNewTask(text);
             }else {
