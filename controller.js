@@ -4,8 +4,12 @@
 
         addTask: function () {
             var text = document.getElementById("newTask").value;
-            app.model.addTask(text);
-            app.view.showNewTask(text);
+            if(text.match(/\w/)){
+                app.model.addTask(text);
+                app.view.showNewTask(text);
+            }else {
+                app.view.emptyInput();
+            }
         },
 
         removeTask: function (target) {

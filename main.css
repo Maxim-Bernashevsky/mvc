@@ -72,3 +72,25 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background-color: #ccccff;
 }
+.empty {
+	box-shadow: 0 0 10px #820909;
+	background-color: #ffd8d8;
+	animation: shake .3s ease;
+	transition: background-color .3s ease, box-shadow .45s ease;
+}
+@keyframes shake{
+	0%{
+		transform: translateX(0px);
+	}
+	33%{
+		transform: translateX(20px);
+	}
+	66%{
+		transform: translateX(-20px);
+	}
+	100%{
+		transform: translateX(0px);
+		background-color: #fff;
+		box-shadow: none;
+	}
+}

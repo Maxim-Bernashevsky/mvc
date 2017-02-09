@@ -11,6 +11,13 @@
 
         removeTask: function (target) {
             target.remove();
-        }
+        },
+
+        emptyInput: function () {
+            document.getElementById("newTask").classList.add("empty");
+            setTimeout(function () {
+                document.getElementById("newTask").classList.remove("empty");
+            }, 300);
+        } 
     }
 })()

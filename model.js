@@ -4,6 +4,7 @@ app.model = (function () {
     return {
 
         addTask: function (text) {
+            todos = JSON.parse(localStorage.getItem("todos"));
             todos.push(text);
             localStorage.setItem("todos", JSON.stringify(todos));
         },
