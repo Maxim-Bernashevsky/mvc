@@ -1,9 +1,9 @@
 
 
 module.exports = {
-    entry: "./main",
+    entry: "./src/main",
     output: {
-        filename: "bundle.js"
+        filename: "./dev/bundle.js"
     },
     watch: true
 }

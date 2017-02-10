@@ -1,0 +1,27 @@
+{
+  "name": "mvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "babel-polyfill": "^6.22.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "echo": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maxim-Bernashevsky/mvc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maxim-Bernashevsky/mvc/issues"
+  },
+  "homepage": "https://github.com/Maxim-Bernashevsky/mvc#readme"
+}
