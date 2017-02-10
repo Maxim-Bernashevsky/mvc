@@ -1,5 +1,8 @@
+import {controller} from './controller';
+import {view} from './view';
+import {model} from './model.js';
 
-var app = (function(){
+let app = (function(){
 
     function init() {
         event();
@@ -15,24 +18,27 @@ var app = (function(){
         var el = document.getElementById("btnNewTask");
         el.addEventListener("click", function(event){
             event.preventDefault();
-            app.controller.addTask();
+            controller.addTask();
         });
 
         var list = document.querySelector("ul");
         list.addEventListener("click", function (event) {
             var target = event.target;
             if (target.tagName != 'I') return;
-            app.controller.removeTask(target.parentNode);
+            controller.removeTask(target.parentNode);
         });
 
         window.onload = function(){
-            var todos = app.model.getTasks();
+            var todos = model.getTasks();
             todos.forEach(function (li) {
-                app.view.showNewTask(li);
+                view.showNewTask(li);
             })
+
         };
     }
 
     return {}
 })();
+
+
 

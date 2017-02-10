@@ -1,10 +1,8 @@
-
-(function(){
-    app.view = {
+export let view = {
 
         showNewTask: function (text) {
             var li = document.createElement("li");
-            li.innerHTML = "<span>"+text+"</span><i>X</i>";
+            li.innerHTML = "<span>" + text + "</span><i>X</i>";
             var list = document.getElementById("list");
             list.appendChild(li);
         },
@@ -25,5 +23,5 @@
                 document.getElementById("labelNewTask").style.color = "";
             }, 2000);
         }
-    }
-})()
+
+}

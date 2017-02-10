@@ -1,5 +1,4 @@
-
-app.model = (function () {
+export let model = (function () {
     var todos = [];
     return {
 

@@ -1,22 +1,21 @@
-
-(function(){
-    app.controller = {
+import {model} from './model.js';
+import {view} from './view';
+export let controller = {
 
         addTask: function () {
             var text = document.getElementById("newTask").value;
             if(text.match(/[A-zА-я0-9]/)){
-                app.model.addTask(text);
-                app.view.showNewTask(text);
+                model.addTask(text);
+                view.showNewTask(text);
             }else {
-                app.view.emptyInput();
+                view.emptyInput();
             }
         },
 
         removeTask: function (target) {
             var targetText = target.children[0].innerText;
-            app.model.removeTask(targetText);
-            app.view.removeTask(target);
+            model.removeTask(targetText);
+            view.removeTask(target);
         }
 
-    }
-})();
+}
