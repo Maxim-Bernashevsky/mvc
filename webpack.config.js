@@ -3,7 +3,7 @@
 module.exports = {
     entry: "./src/main",
     output: {
-        filename: "./dev/bundle.js"
+        filename: "./prod/bundle.js"
     },
     watch: true
 }
