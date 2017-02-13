@@ -1,11 +1,8 @@
 
-8
-main.css,3\3\33e0a7d96f2f283eb6f94bbfd4ce882c6816f77d
-7
-main.js,c\4\c4a4248f7568c9e41265502c39b0daeb8b635431
-7
-view.js,c\b\cb0d8f6758b1e75b9a853b688577f86ecc1e221f
-8
-model.js,a\5\a59ae871263ab65646ce1c6537bbe769f558e0ec
-=
-controller.js,9\5\95936ee54a58d5c0c78ea77767d3e1f41a7934e8
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+A
+webpack.config.js,d\5\d5595158cc48f9bf3e51b06f6e6805a8fd2d6262

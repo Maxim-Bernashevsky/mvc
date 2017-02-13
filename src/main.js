@@ -1,6 +1,7 @@
 import {controller} from './controller';
 import {view} from './view';
 import {model} from './model.js';
+import './main.css';
 
 let app = (function(){
 
