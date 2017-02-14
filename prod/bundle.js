@@ -180,7 +180,7 @@ var controller = exports.controller = {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(5);
+var content = __webpack_require__(4);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(6)(content, {});
@@ -203,23 +203,34 @@ if(false) {
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+exports = module.exports = __webpack_require__(5)();
+// imports
 
+
+// module
+exports.push([module.i, "body {\n\tmargin: 0;\n\ttext-align: center;\n\tfont-size: 20px;\n\tfont-family: \"Noto Sans\", Arial, sans-serif;\n}\nul {\n\twidth: 50%;\n\tmargin: 0 auto;\n\tpadding: 0;\n\tlist-style: none;\n}\nli {\n\tmargin: 5px;\n\tpadding: 10px;\n\tborder-radius: 3px;\n\tborder: 1px solid #e5e5ff;\n\tbackground-color: #eef;\n\t-webkit-transition: background-color .2s ease;\n\t-moz-transition: background-color .2s ease ;\n\t-ms-transition: background-color .2s ease ;\n\t-o-transition: background-color .2s ease ;\n\ttransition: background-color .2s ease ;\n\tposition: relative;\n}\nli:hover{\n\tbackground-color: #e1e1ff;\n}\nli i{\n\tposition: absolute;\n\ttop: 0;\n\tright: 0;\n\theight: 100%;\n\tpadding: 0 15px;\n\tline-height: 42px;\n\t-webkit-transition: background-color .2s ease;\n\t-moz-transition: background-color .2s ease;\n\t-ms-transition: background-color .2s ease;\n\t-o-transition: background-color .2s ease;\n\ttransition: background-color .2s ease;\n}\nli i:hover{\n\tbackground-color: red;\n\tcursor: default;\n}\nform {\n\tmargin: 30px 0;\n\twidth: 100%;\n\tbackground-color: #f7f7f7;\n}\nlabel {\n\tdisplay: block;\n\tpadding: 20px 0 0;\n}\ninput{\n\twidth: 50%;\n\tmargin: 10px auto;\n\tpadding: 5px;\n\tfont-size: 20px;\n\tfont-family: \"Noto Sans\", Arial, sans-serif;\n}\ninput[type=\"submit\"] {\n\tborder: 1px solid #cdcdff;\n\tbackground-color: #ddf;\n\tborder-radius: 3px;\n\t-webkit-transition: background-color .2s ease;\n\t-moz-transition: background-color .2s ease ;\n\t-ms-transition: background-color .2s ease ;\n\t-o-transition: background-color .2s ease ;\n\ttransition: background-color .2s ease ;\n}\ninput[type=\"submit\"]:hover {\n\tbackground-color: #ccccff;\n}\n.empty {\n\tbox-shadow: 0 0 10px #820909;\n\tbackground-color: #ffd8d8;\n\tanimation: shake .3s ease;\n\ttransition: background-color .3s ease, box-shadow .45s ease;\n}\n@keyframes shake{\n\t0%{\n\t\ttransform: translateX(0px);\n\t}\n\t33%{\n\t\ttransform: translateX(20px);\n\t}\n\t66%{\n\t\ttransform: translateX(-20px);\n\t}\n\t100%{\n\t\ttransform: translateX(0px);\n\t\tbackground-color: #fff;\n\t\tbox-shadow: none;\n\t}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
 
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
-module.exports = function () {
+module.exports = function() {
 	var list = [];
 
 	// return the list of modules as css string
 	list.toString = function toString() {
 		var result = [];
-		for (var i = 0; i < this.length; i++) {
+		for(var i = 0; i < this.length; i++) {
 			var item = this[i];
-			if (item[2]) {
+			if(item[2]) {
 				result.push("@media " + item[2] + "{" + item[1] + "}");
 			} else {
 				result.push(item[1]);
@@ -229,23 +240,25 @@ module.exports = function () {
 	};
 
 	// import a list of modules into the list
-	list.i = function (modules, mediaQuery) {
-		if (typeof modules === "string") modules = [[null, modules, ""]];
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
 		var alreadyImportedModules = {};
-		for (var i = 0; i < this.length; i++) {
+		for(var i = 0; i < this.length; i++) {
 			var id = this[i][0];
-			if (typeof id === "number") alreadyImportedModules[id] = true;
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
 		}
-		for (i = 0; i < modules.length; i++) {
+		for(i = 0; i < modules.length; i++) {
 			var item = modules[i];
 			// skip already imported module
 			// this implementation is not 100% perfect for weird media query combinations
 			//  when a module is imported multiple times with different media queries.
 			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if (mediaQuery && !item[2]) {
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
 					item[2] = mediaQuery;
-				} else if (mediaQuery) {
+				} else if(mediaQuery) {
 					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
 				}
 				list.push(item);
@@ -254,19 +267,6 @@ module.exports = function () {
 	};
 	return list;
 };
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)();
-// imports
-
-
-// module
-exports.push([module.i, "body {\n\tmargin: 0;\n\ttext-align: center;\n\tfont-size: 20px;\n\tfont-family: \"Noto Sans\", Arial, sans-serif;\n}\nul {\n\twidth: 50%;\n\tmargin: 0 auto;\n\tpadding: 0;\n\tlist-style: none;\n}\nli {\n\tmargin: 5px;\n\tpadding: 10px;\n\tborder-radius: 3px;\n\tborder: 1px solid #e5e5ff;\n\tbackground-color: #eef;\n\t-webkit-transition: background-color .2s ease;\n\t-moz-transition: background-color .2s ease ;\n\t-ms-transition: background-color .2s ease ;\n\t-o-transition: background-color .2s ease ;\n\ttransition: background-color .2s ease ;\n\tposition: relative;\n}\nli:hover{\n\tbackground-color: #e1e1ff;\n}\nli i{\n\tposition: absolute;\n\ttop: 0;\n\tright: 0;\n\theight: 100%;\n\tpadding: 0 15px;\n\tline-height: 42px;\n\t-webkit-transition: background-color .2s ease;\n\t-moz-transition: background-color .2s ease;\n\t-ms-transition: background-color .2s ease;\n\t-o-transition: background-color .2s ease;\n\ttransition: background-color .2s ease;\n}\nli i:hover{\n\tbackground-color: red;\n\tcursor: default;\n}\nform {\n\tmargin: 30px 0;\n\twidth: 100%;\n\tbackground-color: #f7f7f7;\n}\nlabel {\n\tdisplay: block;\n\tpadding: 20px 0 0;\n}\ninput{\n\twidth: 50%;\n\tmargin: 10px auto;\n\tpadding: 5px;\n\tfont-size: 20px;\n\tfont-family: \"Noto Sans\", Arial, sans-serif;\n}\ninput[type=\"submit\"] {\n\tborder: 1px solid #cdcdff;\n\tbackground-color: #ddf;\n\tborder-radius: 3px;\n\t-webkit-transition: background-color .2s ease;\n\t-moz-transition: background-color .2s ease ;\n\t-ms-transition: background-color .2s ease ;\n\t-o-transition: background-color .2s ease ;\n\ttransition: background-color .2s ease ;\n}\ninput[type=\"submit\"]:hover {\n\tbackground-color: #ccccff;\n}\n.empty {\n\tbox-shadow: 0 0 10px #820909;\n\tbackground-color: #ffd8d8;\n\tanimation: shake .3s ease;\n\ttransition: background-color .3s ease, box-shadow .45s ease;\n}\n@keyframes shake{\n\t0%{\n\t\ttransform: translateX(0px);\n\t}\n\t33%{\n\t\ttransform: translateX(20px);\n\t}\n\t66%{\n\t\ttransform: translateX(-20px);\n\t}\n\t100%{\n\t\ttransform: translateX(0px);\n\t\tbackground-color: #fff;\n\t\tbox-shadow: none;\n\t}\n}", ""]);
-
-// exports
 
 
 /***/ }),
