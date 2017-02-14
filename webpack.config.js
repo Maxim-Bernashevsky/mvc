@@ -1,12 +1,7 @@
 
-
-
-
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-//const Webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-//require("./src/main.css");
-//var extractCSS = new ExtractTextPlugin('./src/main.css');
+
 
 module.exports = {
     entry: "./src/main",
