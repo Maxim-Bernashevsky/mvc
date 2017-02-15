@@ -9,6 +9,10 @@ module.exports = {
         path: 'prod',
         filename: "./bundle.js"
     },
+    resolve: {
+        // Add `.ts` and `.tsx` as a resolvable extension.
+        extensions: ['.ts', '.tsx', '.js'] // note if using webpack 1 you'd also need a '' in the array as well
+    },
     plugins: [
         new HtmlWebpackPlugin({
             path: 'prod',
@@ -25,6 +29,10 @@ module.exports = {
                 loader: 'style-loader!css-loader'
             },
             {
+                test: /\.tsx?$/,
+                loader: 'ts-loader'
+            },
+            {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader',
@@ -34,6 +42,5 @@ module.exports = {
             }
         ]
     }
-
 }
 
