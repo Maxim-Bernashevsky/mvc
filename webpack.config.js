@@ -4,7 +4,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
 module.exports = {
-    entry: "./src/main",
+    entry: "./src/main.ts",
     output: {
         path: 'prod',
         filename: "./bundle.js"
@@ -30,15 +30,7 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader'
-            },
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015']
-                }
+                loader: 'babel-loader!ts-loader'
             }
         ]
     }

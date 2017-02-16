@@ -1,5 +1,6 @@
-import {model} from './model.js';
+import {model} from './model';
 import {view} from './view';
+
 export let controller = {
 
      addTask: function () {

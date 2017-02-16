@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,6 +71,32 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var todos = [];
+exports.model = {
+    addTask: function (text) {
+        todos = JSON.parse(localStorage.getItem("todos"));
+        todos.push(text);
+        localStorage.setItem("todos", JSON.stringify(todos));
+    },
+    removeTask: function (targetText) {
+        todos = JSON.parse(localStorage.getItem("todos"));
+        var targetNum = todos.indexOf(targetText);
+        todos.splice(targetNum, 1);
+        localStorage.setItem("todos", JSON.stringify(todos));
+    },
+    getTasks: function () {
+        return JSON.parse(localStorage.getItem("todos"));
+    }
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 exports.view = {
     showNewTask: function (text) {
@@ -96,18 +122,43 @@ exports.view = {
     }
 };
 
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var model_1 = __webpack_require__(0);
+var view_1 = __webpack_require__(1);
+exports.controller = {
+    addTask: function () {
+        var text = document.getElementById("newTask")['value'];
+        if (text['match'](/[A-zА-я0-9]/)) {
+            model_1.model.addTask(text);
+            view_1.view.showNewTask(text);
+        } else {
+            view_1.view.emptyInput();
+        }
+    },
+    removeTask: function (target) {
+        var targetText = target.children[0].innerText;
+        model_1.model.removeTask(targetText);
+        view_1.view.removeTask(target);
+    }
+};
 
 /***/ }),
-/* 1 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(5);
+var content = __webpack_require__(4);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, {});
+var update = __webpack_require__(6)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -124,91 +175,10 @@ if(false) {
 }
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var model_js_1 = __webpack_require__(4);
-var view_1 = __webpack_require__(0);
-exports.controller = {
-    addTask: function () {
-        var text = document.getElementById("newTask")['value'];
-        if (text['match'](/[A-zА-я0-9]/)) {
-            model_js_1.model.addTask(text);
-            view_1.view.showNewTask(text);
-        }
-        else {
-            view_1.view.emptyInput();
-        }
-    },
-    removeTask: function (target) {
-        var targetText = target.children[0].innerText;
-        model_js_1.model.removeTask(targetText);
-        view_1.view.removeTask(target);
-    }
-};
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.model = (function () {
-    var todos = [];
-    return {
-        addTask: function (text) {
-            todos = JSON.parse(localStorage.getItem("todos"));
-            todos.push(text);
-            localStorage.setItem("todos", JSON.stringify(todos));
-        },
-        removeTask: function (targetText) {
-            todos = JSON.parse(localStorage.getItem("todos"));
-            var targetNum = todos.indexOf(targetText);
-            todos.splice(targetNum, 1);
-            localStorage.setItem("todos", JSON.stringify(todos));
-        },
-        getTasks: function () {
-            return JSON.parse(localStorage.getItem("todos"));
-        }
-    };
-})();
-
-
-/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-exports.model = function () {
-    var todos = [];
-    return {
-        addTask: function addTask(text) {
-            todos = JSON.parse(localStorage.getItem("todos"));
-            todos.push(text);
-            localStorage.setItem("todos", JSON.stringify(todos));
-        },
-        removeTask: function removeTask(targetText) {
-            todos = JSON.parse(localStorage.getItem("todos"));
-            var targetNum = todos.indexOf(targetText);
-            todos.splice(targetNum, 1);
-            localStorage.setItem("todos", JSON.stringify(todos));
-        },
-        getTasks: function getTasks() {
-            return JSON.parse(localStorage.getItem("todos"));
-        }
-    };
-}();
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)();
+exports = module.exports = __webpack_require__(5)();
 // imports
 
 
@@ -219,7 +189,7 @@ exports.push([module.i, "body {\n\tmargin: 0;\n\ttext-align: center;\n\tfont-siz
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /*
@@ -275,7 +245,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports) {
 
 /*
@@ -527,23 +497,23 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
 var controller_1 = __webpack_require__(2);
-var view_1 = __webpack_require__(0);
-var model_1 = __webpack_require__(3);
-__webpack_require__(1);
-var app = (function () {
+var view_1 = __webpack_require__(1);
+var model_1 = __webpack_require__(0);
+__webpack_require__(3);
+var app = function () {
     function init() {
         event();
         main();
     }
     init();
-    function main() {
-    }
+    function main() {}
     function event() {
         var el = document.getElementById("btnNewTask");
         el.addEventListener("click", function (event) {
@@ -566,8 +536,7 @@ var app = (function () {
         };
     }
     return {};
-})();
-
+}();
 
 /***/ })
 /******/ ]);

@@ -1,8 +1,8 @@
 "use strict";
-var controller_1 = require("./controller");
-var view_1 = require("./view");
-var model_1 = require("./model");
-require("./main.css");
+var controller_1 = require('./controller');
+var view_1 = require('./view');
+var model_1 = require('./model');
+require('./main.css');
 var app = (function () {
     function init() {
         event();
@@ -34,3 +34,4 @@ var app = (function () {
     }
     return {};
 })();
+//# sourceMappingURL=main.js.map

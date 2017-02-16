@@ -22,3 +22,4 @@ exports.view = {
         }, 2000);
     }
 };
+//# sourceMappingURL=view.js.map

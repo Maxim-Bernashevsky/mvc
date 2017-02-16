@@ -1,8 +1,22 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
         "noImplicitAny": false,
-        "sourceMap": false
-    }
+        "removeComments": true,
+        "sourceMap": true,
+        "target": "es5"
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ],
+    "include": [
+        "src/*.ts"
+    ]/*,
+    "files": [
+        "src/controller.ts",
+        "src/main.ts",
+        "src/model.ts",
+        "src/view.ts"
+    ]*/
 }

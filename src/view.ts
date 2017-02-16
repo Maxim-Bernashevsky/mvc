@@ -1,4 +1,4 @@
-export let view = {
+export const view = {
 
         showNewTask: function (text) {
             const li = document.createElement("li");
